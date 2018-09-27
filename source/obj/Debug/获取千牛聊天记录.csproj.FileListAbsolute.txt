@@ -1,0 +1,9 @@
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\bin\Debug\获取千牛聊天记录.exe.config
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\obj\Debug\获取千牛聊天记录.Form1.resources
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\obj\Debug\获取千牛聊天记录.Properties.Resources.resources
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\obj\Debug\获取千牛聊天记录.csproj.GenerateResource.Cache
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\bin\Debug\获取千牛聊天记录.exe
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\bin\Debug\获取千牛聊天记录.pdb
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\obj\Debug\获取千牛聊天记录.exe
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\obj\Debug\获取千牛聊天记录.pdb
+E:\GitSrc\获取千牛聊天记录\获取千牛聊天记录\obj\Debug\获取千牛聊天记录.csprojResolveAssemblyReference.cache
