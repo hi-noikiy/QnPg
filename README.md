@@ -4,8 +4,7 @@ comments: true
 date: 2018-09-27 13:11
 layout: post
 title: 千牛聊天记录获取
-categories:
-- 千牛插件开发
+categories: 千牛插件开发
 ---
 
 ## 分析UI:
@@ -21,20 +20,20 @@ categories:
 1、先用WINAPI获取千牛的工作台窗口句柄(不是聊天记录窗口的句柄)。
 ```C#
  public virtual Dictionary<string, int> GetAllChatDeskSellerNameAndHwndInner()
-        {
-            Dictionary<string, int> rtdict = new Dictionary<string, int>();
-            FindAllDesktopWindowByClassNameAndTitlePattern("StandardFrame", chatWindowTitlePattern, (int hwnd, string title) =>
-            {
-                if (IsWindowVisible(hwnd))
-                {
-                    string winTitle = Regex.Match(title, chatWindowTitlePattern).ToString();
-                    if (!string.IsNullOrEmpty(winTitle)){
-                        rtdict[winTitle] = hwnd;
-                    }
-                }
-            });
-            return rtdict;
-        }
+ {
+     Dictionary<string, int> rtdict = new Dictionary<string, int>();
+     FindAllDesktopWindowByClassNameAndTitlePattern("StandardFrame", chatWindowTitlePattern, (int hwnd, string title) =>
+     {
+         if (IsWindowVisible(hwnd))
+         {
+             string winTitle = Regex.Match(title, chatWindowTitlePattern).ToString();
+             if (!string.IsNullOrEmpty(winTitle)){
+                 rtdict[winTitle] = hwnd;
+             }
+         }
+     });
+     return rtdict;
+ }
 ```
 2、获取Chrome远程调试端口
 ```C#
@@ -57,31 +56,31 @@ var chromeSession = new ChromeSessionFactory().Create(webSocketSessionInfo.WebSo
 var html = GetHtml(out html);
 
  public bool GetHtml(out string html)
-        {
-            bool hasGetHtml = false;
-            html = "";
-            ICommandResponse commandResponse;
-            if (this.SendCommandSafe<GetDocumentCommand>(out commandResponse, null))
-            {
-                CommandResponse<GetDocumentCommandResponse> commandResponse2 = commandResponse as CommandResponse<GetDocumentCommandResponse>;
-                long nodeId = commandResponse2.Result.Root.NodeId;
-                GetOuterHTMLCommand parameter = new GetOuterHTMLCommand
-                {
-                    NodeId = nodeId
-                };
-                if (this.SendCommandSafe<GetOuterHTMLCommand>(out commandResponse, parameter))
-                {
-                    CommandResponse<GetOuterHTMLCommandResponse> commandResponse3 = commandResponse as CommandResponse<GetOuterHTMLCommandResponse>;
-                    html = (commandResponse3.Result.OuterHTML ?? "");
-                    hasGetHtml = true;
-                }
-            }
-            return hasGetHtml;
-        }
+ {
+     bool hasGetHtml = false;
+     html = "";
+     ICommandResponse commandResponse;
+     if (this.SendCommandSafe<GetDocumentCommand>(out commandResponse, null))
+     {
+         CommandResponse<GetDocumentCommandResponse> commandResponse2 = commandResponse as CommandResponse<GetDocumentCommandResponse>;
+         long nodeId = commandResponse2.Result.Root.NodeId;
+         GetOuterHTMLCommand parameter = new GetOuterHTMLCommand
+         {
+             NodeId = nodeId
+         };
+         if (this.SendCommandSafe<GetOuterHTMLCommand>(out commandResponse, parameter))
+         {
+             CommandResponse<GetOuterHTMLCommandResponse> commandResponse3 = commandResponse as CommandResponse<GetOuterHTMLCommandResponse>;
+             html = (commandResponse3.Result.OuterHTML ?? "");
+             hasGetHtml = true;
+         }
+     }
+     return hasGetHtml;
+ }
 
 ```
 
-##以下是最终实现效果
+## 以下是最终实现效果
 [![qnchatlog](http://7xpf2l.com1.z0.glb.clouddn.com/qianniugetchatlog.gif "qnchatlog")](http://7xpf2l.com1.z0.glb.clouddn.com/qianniugetchatlog.gif "qnchatlog")
 
 
